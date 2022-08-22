@@ -16,7 +16,7 @@ import {
   walletAdapterIdentity,
   bundlrStorage,
   MetaplexFile,
-  useMetaplexFileFromBrowser,
+  toMetaplexFileFromBrowser,
   findMetadataPda,
 } from "@metaplex-foundation/js"
 
@@ -52,7 +52,7 @@ export const CreateToken: FC = () => {
 
   // upload image
   const uploadImage = async (event) => {
-    const file: MetaplexFile = await useMetaplexFileFromBrowser(
+    const file: MetaplexFile = await toMetaplexFileFromBrowser(
       event.target.files[0]
     )
 
@@ -68,7 +68,7 @@ export const CreateToken: FC = () => {
       description: description,
       image: imageUrl,
     }
-    const { uri } = await metaplex.nfts().uploadMetadata(data)
+    const { uri } = await metaplex.nfts().uploadMetadata(data).run()
     setMetadataUrl(uri)
     console.log(uri)
   }
