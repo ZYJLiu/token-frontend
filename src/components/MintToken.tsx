@@ -105,7 +105,7 @@ export const MintToken: FC = () => {
         <input
           type="text"
           className="form-control block mb-2 w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-          placeholder="Receipient PublicKey"
+          placeholder="Recipient PublicKey"
           onChange={(e) => setRecipientPublicKey(e.target.value)}
         />
         <input
