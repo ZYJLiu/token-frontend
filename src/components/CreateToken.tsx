@@ -46,18 +46,25 @@ export const CreateToken: FC = () => {
     })
   )
 
-  if (wallet) {
+  if (wallet.connected) {
     metaplex.use(walletAdapterIdentity(wallet))
   }
 
   // upload image
   const uploadImage = async (event) => {
-    const file: MetaplexFile = await toMetaplexFileFromBrowser(
-      event.target.files[0]
-    )
+    if (wallet.connected) {
+      const file: MetaplexFile = await toMetaplexFileFromBrowser(
+        event.target.files[0]
+      )
 
-    const imageUrl = await metaplex.storage().upload(file)
-    setImageUrl(imageUrl)
+      const imageUrl = await metaplex.storage().upload(file)
+      setImageUrl(imageUrl)
+    } else {
+      notify({
+        type: "error",
+        message: `Connect Wallet`,
+      })
+    }
   }
 
   // upload metadata
