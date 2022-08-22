@@ -3,7 +3,6 @@ import { Transaction, PublicKey } from "@solana/web3.js"
 import {
   createMintToInstruction,
   getAssociatedTokenAddress,
-  TOKEN_PROGRAM_ID,
   getAccount,
   createAssociatedTokenAccountInstruction,
   Account,
