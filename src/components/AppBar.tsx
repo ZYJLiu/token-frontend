@@ -103,6 +103,9 @@ export const AppBar: FC = (props) => {
             <Link href="/createToken">
               <a className="btn btn-ghost btn-sm rounded-btn">Create Token</a>
             </Link>
+            <Link href="/mintToken">
+              <a className="btn btn-ghost btn-sm rounded-btn">Mint Token</a>
+            </Link>
           </div>
         </div>
 

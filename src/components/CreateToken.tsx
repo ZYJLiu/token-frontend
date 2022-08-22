@@ -52,19 +52,12 @@ export const CreateToken: FC = () => {
 
   // upload image
   const uploadImage = async (event) => {
-    if (wallet.connected) {
-      const file: MetaplexFile = await toMetaplexFileFromBrowser(
-        event.target.files[0]
-      )
+    const file: MetaplexFile = await toMetaplexFileFromBrowser(
+      event.target.files[0]
+    )
 
-      const imageUrl = await metaplex.storage().upload(file)
-      setImageUrl(imageUrl)
-    } else {
-      notify({
-        type: "error",
-        message: `Connect Wallet`,
-      })
-    }
+    const imageUrl = await metaplex.storage().upload(file)
+    setImageUrl(imageUrl)
   }
 
   // upload metadata
@@ -216,6 +209,7 @@ export const CreateToken: FC = () => {
                         type="file"
                         className="sr-only"
                         onChange={uploadImage}
+                        disabled={!wallet.connected}
                       />
                     </div>
                   ) : (
@@ -255,6 +249,7 @@ export const CreateToken: FC = () => {
               <button
                 className="px-8 m-2 btn animate-pulse bg-gradient-to-r from-[#9945FF] to-[#14F195] hover:from-pink-500 hover:to-yellow-500 ..."
                 onClick={async () => uploadMetadata()}
+                disabled={!wallet.connected}
               >
                 Create Token
               </button>

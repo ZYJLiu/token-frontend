@@ -29,6 +29,11 @@ export const ContentContainer: FC = (props) => {
               <a>Create Token</a>
             </Link>
           </li>
+          <li>
+            <Link href="/mintToken">
+              <a>Mint Token</a>
+            </Link>
+          </li>
         </ul>
       </div>
     </div>
