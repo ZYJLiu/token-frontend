@@ -25,6 +25,11 @@ export const ContentContainer: FC = (props) => {
             </Link>
           </li>
           <li>
+            <Link href="/createNft">
+              <a>Create NFT</a>
+            </Link>
+          </li>
+          <li>
             <Link href="/createToken">
               <a>Create Token</a>
             </Link>
